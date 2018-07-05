@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>WHY&#39;s Blog</title>
+  <title>Qt(01)--树莓派LED灯 | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="WHY&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="一、树莓派安装Qt1.使用win32DiskImager烧写TF卡映像 2.在命令终端执行1sudo apt-get update">
+<meta name="keywords" content="Qt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qt(01)--树莓派LED灯">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/Qt(01)--树莓派LED灯/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
+<meta property="og:description" content="一、树莓派安装Qt1.使用win32DiskImager烧写TF卡映像 2.在命令终端执行1sudo apt-get update">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-12aaa22c796f43f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-f7cedc06cca33dd5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-b52be2d777b15005.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-c8765225d7634cc4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-05T09:42:25.554Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WHY&#39;s Blog">
+<meta name="twitter:title" content="Qt(01)--树莓派LED灯">
+<meta name="twitter:description" content="一、树莓派安装Qt1.使用win32DiskImager烧写TF卡映像 2.在命令终端执行1sudo apt-get update">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9969251-12aaa22c796f43f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -150,16 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Qt(01)--树莓派LED灯" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-Qt(01)--树莓派LED灯" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/05/Qt(01)--树莓派LED灯/">Qt(01)--树莓派LED灯</a>
+    <h1 class="article-title" itemprop="name">
+      Qt(01)--树莓派LED灯
     </h1>
   
 
@@ -174,11 +182,50 @@
       
         <h2 id="一、树莓派安装Qt"><a href="#一、树莓派安装Qt" class="headerlink" title="一、树莓派安装Qt"></a>一、树莓派安装Qt</h2><p>1.使用win32DiskImager烧写TF卡映像</p>
 <p>2.在命令终端执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/07/05/Qt(01)--树莓派LED灯/#more">more >></a>
-        
+<a id="more"></a>
+<p>3.在命令终端执行（如果需等待时间过长，可先Ctrl + C跳过此步骤，如后续安装失败再执行此步骤）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpi-update</span><br></pre></td></tr></table></figure></p>
+<p>4.安装Qt5-Default<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qt5-default</span><br></pre></td></tr></table></figure></p>
+<p>5.安装Qt Creator<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qtcreator</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、配置环境"><a href="#二、配置环境" class="headerlink" title="二、配置环境"></a>二、配置环境</h2><p>安装好qt5-default和qtcreator后，在Programming中可打开Qt Creator。点击Tool -&gt; External -&gt; configure，在左侧菜单栏点击Build &amp; Run -&gt; Compilers，点击Add -&gt; GCC -&gt; C++，在Compiler path中选择gcc所在目录。<br><img src="https://upload-images.jianshu.io/upload_images/9969251-12aaa22c796f43f8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译器配置.jpg"><br>然后在Kits中，选择GCC编译器。<br><img src="https://upload-images.jianshu.io/upload_images/9969251-f7cedc06cca33dd5.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Kits.jpg"></p>
+<h2 id="三、连接LED灯"><a href="#三、连接LED灯" class="headerlink" title="三、连接LED灯"></a>三、连接LED灯</h2><p><img src="https://upload-images.jianshu.io/upload_images/9969251-b52be2d777b15005.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="树莓派引脚对照表.png"><br>我们使用wiringPi驱动库来作为控制树莓派GPIO的驱动，wiringPi的GPIO编码顺序如图所示，本次我们使用wiringPi 0也就是GPIO.0 这个引脚，将LED的正极引脚皆在GPIO.0上，将LED的负极引脚接在GND上。</p>
+<h2 id="四、Qt工程"><a href="#四、Qt工程" class="headerlink" title="四、Qt工程"></a>四、Qt工程</h2><p>新建Qt工程，在.pro文件最后一行加入wiringPi驱动库的引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LIBS += -lwiringPi</span><br></pre></td></tr></table></figure></p>
+<p>加入wiringPi驱动的头文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;wiringPi.h&quot;</span><br></pre></td></tr></table></figure></p>
+<p>在连接LED时，我们选择编号为0的引脚作为输出，所以我们首先要初始化改IO口，设置其为输出模式。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MainWindow::MainWindow(QWidget *parent) : </span><br><span class="line">    QMainWindos(parent),</span><br><span class="line">    ui(new Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;setupUi(this);</span><br><span class="line">    wiringPiSetup();</span><br><span class="line">    pinMode(0, OUTPUT);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>初始化改IO口之后，就可以对它进行操作输出高低电平。在mainwindow.ui中放置两个Push Button控件，分别右键点击Go to slot -&gt; clicked()<br><img src="https://upload-images.jianshu.io/upload_images/9969251-c8765225d7634cc4.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ui.jpg"><br>在LED ON按钮的槽函数中，我们需要使该IO口输出高电平，从而点亮LED灯，在LED OFF按钮的槽函数中，使该IO口输出低电平，熄灭LED灯。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// LED ON按钮，点击后IO口输出高电平，点亮LED</span><br><span class="line">void MainWindow::on_pushButton_ledon_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(0, HIGH);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// LED OFF按钮，点击后IO口输出高电平，熄灭LED</span><br><span class="line">void MainWindow::on)pushButton_ledoff_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    digitalWrite(0, LOW);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpeg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -198,16 +245,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/05/Qt(01)--树莓派LED灯/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/05/Qt(01)--树莓派LED灯/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/18/Java(02)--百度云IoT学习/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java(02)--百度云IoT学习</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -227,236 +333,14 @@
 
 
 
-
   
-    <article id="post-Java(02)--百度云IoT学习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/Java(02)--百度云IoT学习/">Java(02)--百度云IoT学习</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/18/Java(02)--百度云IoT学习/" class="archive-article-date">
-  	<time datetime="2018-06-18T09:19:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="一、百度云平台"><a href="#一、百度云平台" class="headerlink" title="一、百度云平台"></a>一、百度云平台</h3><p>百度云平台中的物接入（IoT Hub）服务是一个全托管的云服务，帮助建立设备与云端之间安全可靠的双向连接，以支撑海量设备的数据采集、监控、故障预测灯各种物联网场景。<br>我们可以用物接入来作为搭建物联网应用的第一步，本次主要学习的是百度云平台的物接入，该服务通过主流的物联网协议（MQTT）通讯，将硬件层设备的数据通过MQTT协议传输到百度云物接入云平台，存储到平台的数据库中并且定义规则，可根据规则将数据转发至硬件层或应用层。<br>
-        
-          <a class="article-more-a" href="/2018/06/18/Java(02)--百度云IoT学习/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/Java(02)--百度云IoT学习/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Java(01)--GUI实现字符串与16进制HEX互转" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/">Java(01)--GUI实现字符串与16进制HEX互转</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/" class="archive-article-date">
-  	<time datetime="2018-06-18T08:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近在使用NB-IoT进行STM32开发时经常遇到需要将字符串转为16进制数据的情况，在使用大多数模块以及UDP等通讯协议时，也大多需要将字符串转为16进制后再传输，所以我决定用JAVA GUI制作一个窗体程序可以方便的实现字符串和16进制数据的互相转换。<br>
-        
-          <a class="article-more-a" href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Python(01)--MySQL增删改查操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/18/Python(01)--MySQL增删改查操作/">Python(01)--MySQL增删改查操作</a>
-    </h1>
   
 
-        
-        <a href="/2018/06/18/Python(01)--MySQL增删改查操作/" class="archive-article-date">
-  	<time datetime="2018-06-18T08:15:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、原生模块pymsql"><a href="#一、原生模块pymsql" class="headerlink" title="一、原生模块pymsql"></a>一、原生模块pymsql</h2><p>pymsql是Python中操作MySQL的模块，其使用方法和MySQLdb几乎相同。<br>1.下载安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install pymysql</span><br></pre></td></tr></table></figure></p>
-        
-          <a class="article-more-a" href="/2018/06/18/Python(01)--MySQL增删改查操作/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/06/18/Python(01)--MySQL增删改查操作/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -479,8 +363,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
