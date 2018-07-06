@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java(01)--GUI实现字符串与16进制HEX互转 | WHY&#39;s Blog</title>
+  <title>Qt(02)--UDP通信 | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在使用NB-IoT进行STM32开发时经常遇到需要将字符串转为16进制数据的情况，在使用大多数模块以及UDP等通讯协议时，也大多需要将字符串转为16进制后再传输，所以我决定用JAVA GUI制作一个窗体程序可以方便的实现字符串和16进制数据的互相转换。">
-<meta name="keywords" content="Java">
+  <meta name="description" content="一、UDP协议简介UDP是用户数据报协议（User Datagram Protocool）的简称，是OSI（Open System Interconnection，开放式系统互联）参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。UDP虽然具有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后无法得知其是否安全完整的到达，但其面向无连接的特点在嵌入式">
+<meta name="keywords" content="Qt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java(01)--GUI实现字符串与16进制HEX互转">
-<meta property="og:url" content="http://yoursite.com/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/index.html">
+<meta property="og:title" content="Qt(02)--UDP通信">
+<meta property="og:url" content="http://yoursite.com/2018/07/06/Qt(02)--UDP通信/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
-<meta property="og:description" content="最近在使用NB-IoT进行STM32开发时经常遇到需要将字符串转为16进制数据的情况，在使用大多数模块以及UDP等通讯协议时，也大多需要将字符串转为16进制后再传输，所以我决定用JAVA GUI制作一个窗体程序可以方便的实现字符串和16进制数据的互相转换。">
+<meta property="og:description" content="一、UDP协议简介UDP是用户数据报协议（User Datagram Protocool）的简称，是OSI（Open System Interconnection，开放式系统互联）参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。UDP虽然具有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后无法得知其是否安全完整的到达，但其面向无连接的特点在嵌入式">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-308beea5d59362a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-06-18T10:20:15.464Z">
+<meta property="og:updated_time" content="2018-07-06T15:30:06.198Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java(01)--GUI实现字符串与16进制HEX互转">
-<meta name="twitter:description" content="最近在使用NB-IoT进行STM32开发时经常遇到需要将字符串转为16进制数据的情况，在使用大多数模块以及UDP等通讯协议时，也大多需要将字符串转为16进制后再传输，所以我决定用JAVA GUI制作一个窗体程序可以方便的实现字符串和16进制数据的互相转换。">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9969251-308beea5d59362a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Qt(02)--UDP通信">
+<meta name="twitter:description" content="一、UDP协议简介UDP是用户数据报协议（User Datagram Protocool）的简称，是OSI（Open System Interconnection，开放式系统互联）参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。UDP虽然具有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后无法得知其是否安全完整的到达，但其面向无连接的特点在嵌入式">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -157,31 +155,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java(01)--GUI实现字符串与16进制HEX互转" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Qt(02)--UDP通信" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java(01)--GUI实现字符串与16进制HEX互转
+      Qt(02)--UDP通信
     </h1>
   
 
         
-        <a href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/" class="archive-article-date">
-  	<time datetime="2018-06-18T08:58:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+        <a href="/2018/07/06/Qt(02)--UDP通信/" class="archive-article-date">
+  	<time datetime="2018-07-06T15:28:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在使用NB-IoT进行STM32开发时经常遇到需要将字符串转为16进制数据的情况，在使用大多数模块以及UDP等通讯协议时，也大多需要将字符串转为16进制后再传输，所以我决定用JAVA GUI制作一个窗体程序可以方便的实现字符串和16进制数据的互相转换。<br><a id="more"></a></p>
-<h2 id="一、编写两个转换方法"><a href="#一、编写两个转换方法" class="headerlink" title="一、编写两个转换方法"></a>一、编写两个转换方法</h2><p>首先是字符串转16进制方法，虽然char[]数组更方便转换，但是由于GUI中JTextField通常都是String类型，还是将方法的参数设为String类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * String转16进制</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> ascii</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">Ascii2Hex</span><span class="params">(String ascii)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span>[] chars = ascii.toCharArray();</span><br><span class="line">    StringBuffer hex = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; chars.length;i++) &#123;</span><br><span class="line">        hex.append(Integer.toHexString((<span class="keyword">int</span>)chars[i]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> hex.toString().toUpperCase();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后是16进制转字符串的方法，同样其参数为String类型：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 16进制转String</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> hex</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">Hex2Ascii</span><span class="params">(String hex)</span> </span>&#123;</span><br><span class="line">    String temp = <span class="string">""</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; hex.length() / <span class="number">2</span>; i++) &#123;</span><br><span class="line">        temp = temp + (<span class="keyword">char</span>) Integer.valueOf(hex.substring(i * <span class="number">2</span>, i * <span class="number">2</span> + <span class="number">2</span>), <span class="number">16</span>).byteValue();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> temp;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="二、窗体类"><a href="#二、窗体类" class="headerlink" title="二、窗体类"></a>二、窗体类</h2><p>实现了两个转换的方法后，就可以新建一个类继承自JFrame，在窗口类中布局，在窗口类中，我使用简单的线性布局来实现。将第一个JTextField的文字作为转换方法的参数，得到返回值输出到第二个JTextField。<br><img src="https://upload-images.jianshu.io/upload_images/9969251-308beea5d59362a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.swing.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.*;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionEvent;</span><br><span class="line"><span class="keyword">import</span> java.awt.event.ActionListener;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span> :王皓月</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> :2018/6/16 下午10:40</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span> :窗体类</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ToolGUI</span> <span class="keyword">extends</span> <span class="title">JFrame</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    JTextField textField1;</span><br><span class="line">    JButton button1;</span><br><span class="line">    JButton button2;</span><br><span class="line">    JTextField textField2;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ToolGUI</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        setVisible(<span class="keyword">true</span>);</span><br><span class="line">        setTitle(<span class="string">"16进制与字符串转换"</span>);</span><br><span class="line">        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</span><br><span class="line">        setBounds(<span class="number">400</span>,<span class="number">400</span>,<span class="number">400</span>,<span class="number">130</span>);</span><br><span class="line">        setLayout(<span class="keyword">new</span> FlowLayout());</span><br><span class="line">        Container container = getContentPane();</span><br><span class="line">        container.setBackground(Color.WHITE);</span><br><span class="line"></span><br><span class="line">        textField1 = <span class="keyword">new</span> JTextField(<span class="number">30</span>);</span><br><span class="line">        container.add(textField1);</span><br><span class="line"></span><br><span class="line">        button1 = <span class="keyword">new</span> JButton(<span class="string">"ASCII转HEX"</span>);</span><br><span class="line">        button2 = <span class="keyword">new</span> JButton(<span class="string">"HEX转ASCII"</span>);</span><br><span class="line"></span><br><span class="line">        button1.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">                String INPUT = textField1.getText().toString();</span><br><span class="line">                String OUTPUT = Hex_Ascii.Ascii2Hex(INPUT);</span><br><span class="line">                textField2.setText(OUTPUT);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        button2.addActionListener(<span class="keyword">new</span> ActionListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">actionPerformed</span><span class="params">(ActionEvent e)</span> </span>&#123;</span><br><span class="line">                String INPUT = textField1.getText().toString();</span><br><span class="line">                String OUTPUT = Hex_Ascii.Hex2Ascii(INPUT);</span><br><span class="line">                textField2.setText(OUTPUT);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        container.add(button1);</span><br><span class="line">        container.add(button2);</span><br><span class="line"></span><br><span class="line">        textField2 = <span class="keyword">new</span> JTextField(<span class="number">30</span>);</span><br><span class="line">        container.add(textField2);</span><br><span class="line"></span><br><span class="line">        container.validate();</span><br><span class="line">        setResizable(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="三、主函数"><a href="#三、主函数" class="headerlink" title="三、主函数"></a>三、主函数</h2><p>最后在主类中新建一个窗体类的对象即可。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">main</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> ToolGUI();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="一、UDP协议简介"><a href="#一、UDP协议简介" class="headerlink" title="一、UDP协议简介"></a>一、UDP协议简介</h3><p>UDP是用户数据报协议（User Datagram Protocool）的简称，是OSI（Open System Interconnection，开放式系统互联）参考模型中一种无连接的传输层协议，提供面向事务的简单不可靠信息传送服务。UDP虽然具有不提供数据包分组、组装和不能对数据包进行排序的缺点，也就是说，当报文发送之后无法得知其是否安全完整的到达，但其面向无连接的特点在嵌入式系统中有着不可或缺的作用。<br><a id="more"></a></p>
+<h3 id="二、Qt编写UDP服务端"><a href="#二、Qt编写UDP服务端" class="headerlink" title="二、Qt编写UDP服务端"></a>二、Qt编写UDP服务端</h3><p>1.新建工程，在.pro文件中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure></p>
+<p>2.在mainwindow.h中加入头文件的引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QUdpSocket&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.完成上述两步之后，就可以使用UDP了，首先我们在mainwindow.ui中放置一个Line Edit控件用来显示客户端发送的数据。然后，创建UDP服务器，绑定本地端口，并连接到消息接收的槽函数。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QUdpSocket *udpServer;</span><br><span class="line">udpServer = new QUdpSocket(this);</span><br><span class="line">udpServer-&gt;bind(QHostAddress::Any, 8888);</span><br><span class="line">connect(udpServer, SIGNAL(readyRead()), this, SLOT(readyread()));</span><br></pre></td></tr></table></figure></p>
+<p>4.接收消息的槽函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void MainWindow::readyread()</span><br><span class="line">&#123;</span><br><span class="line">    QByteArray array;</span><br><span class="line">    array.resize(udpServer-&gt;bytesAvailable());</span><br><span class="line">    udpServer-&gt;readDatagram(array.data(),array.size());</span><br><span class="line">    ui-&gt;lineEdit-&gt;setText(array);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Qt编写UDP客户端"><a href="#Qt编写UDP客户端" class="headerlink" title="Qt编写UDP客户端"></a>Qt编写UDP客户端</h3><p>1.新建工程，在.pro文件中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure></p>
+<p>2.在mainwindow.h中加入头文件的引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;QUdpSocket&gt;</span><br></pre></td></tr></table></figure></p>
+<p>3.在mainwindow.ui中放置一个Line Edit控件和一个Push Button控件，Line Edit控件用户输入想要发送的数据，Push Button按钮负责将数据通过UDP发送至服务端。</p>
+<p>4.创建UDP客户端<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QUdpSocket *udpClient;</span><br><span class="line">udpClient = new QUdpSocket(this);</span><br></pre></td></tr></table></figure></p>
+<p>5.发送按钮槽函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">void MainWindow::on_pushButton_clicked()</span><br><span class="line">&#123;</span><br><span class="line">    udpClient-&gt;writeDatagram(ui-&gt;lineEdit-&gt;text().toUtf8(),QHostAddress(&quot;127.0.0.1&quot;),8888);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -226,7 +229,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
         		</li>
       		
 		</ul>
@@ -282,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/06/Qt(02)--UDP通信/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -296,18 +299,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/06/18/Java(02)--百度云IoT学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java(02)--百度云IoT学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/18/Python(01)--MySQL增删改查操作/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Python(01)--MySQL增删改查操作</div>
+    <a href="/2018/07/05/Qt(01)--树莓派LED灯/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Qt(01)--树莓派LED灯</div>
       <i class="icon-circle-right"></i>
     </a>
   
