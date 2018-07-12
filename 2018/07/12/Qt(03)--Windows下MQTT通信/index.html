@@ -6,39 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java(02)--百度云IoT学习 | WHY&#39;s Blog</title>
+  <title>Qt(03)--Windows下MQTT通信 | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、百度云平台百度云平台中的物接入（IoT Hub）服务是一个全托管的云服务，帮助建立设备与云端之间安全可靠的双向连接，以支撑海量设备的数据采集、监控、故障预测灯各种物联网场景。我们可以用物接入来作为搭建物联网应用的第一步，本次主要学习的是百度云平台的物接入，该服务通过主流的物联网协议（MQTT）通讯，将硬件层设备的数据通过MQTT协议传输到百度云物接入云平台，存储到平台的数据库中并且定义规则，可">
-<meta name="keywords" content="Java">
+  <meta name="description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
+<meta name="keywords" content="Qt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java(02)--百度云IoT学习">
-<meta property="og:url" content="http://yoursite.com/2018/06/18/Java(02)--百度云IoT学习/index.html">
+<meta property="og:title" content="Qt(03)--Windows下MQTT通信">
+<meta property="og:url" content="http://yoursite.com/2018/07/12/Qt(03)--Windows下MQTT通信/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
-<meta property="og:description" content="一、百度云平台百度云平台中的物接入（IoT Hub）服务是一个全托管的云服务，帮助建立设备与云端之间安全可靠的双向连接，以支撑海量设备的数据采集、监控、故障预测灯各种物联网场景。我们可以用物接入来作为搭建物联网应用的第一步，本次主要学习的是百度云平台的物接入，该服务通过主流的物联网协议（MQTT）通讯，将硬件层设备的数据通过MQTT协议传输到百度云物接入云平台，存储到平台的数据库中并且定义规则，可">
+<meta property="og:description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/ucoim32lqg5z2cmhxi17e606/image_1ccsmjr8c1gnth1sdeq6701vog9.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/1hzeg1fc849tegc2h2t8aejb/image_1ccsnllm8oqd1ebo1oqeu7n28p26.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/n1kfwhdlxotnaighy27qqbrd/image_1ccsnn7lh7ljpvv1e3h12co1ogd33.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/akwuu8rxgpkrfm5k65rtil0p/image_1ccsnnnd311vrkus172vgf41kns3g.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/g81va00to1yrq6jn73o028mp/image_1ccso1ra21dea1et9k8e8gj1r3m5t.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/qrti4f9c249xc65fun2o9j3j/image_1ccsob8ep8h11ec47k81hv7ngm6a.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/vmt1attamgjpk39g8if19pbg/image_1ccsocj76e0e1r0dkbf1653fjh7n.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/g28yvgeq90u8m0cr2f9m4srt/image_1cdflfj5v1pr77e3mrj308t4om.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/paczhdsre1hbead9ms5znq4e/image_1cdfl4jht11b41vat1dol1t97ucd9.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/dei67ippe4chljb0oq54y9vi/image_1cdflismg1gpp1k831lnvl8i1d7113.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/uzg8edk350ut2uq2fxm20z48/image_1cdi4a100t8s10od1ved11kg1fh0m.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/iuxipb0o64zvjjxcksr2jxtr/image_1cdflpovg8g9e4v1lte15m41ofr2g.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/ddkc5tl2ca3qd7d0vziqmgqp/image_1cdfm3l309aj1fqkvma1qre19ki2t.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/qou2pjoeiukwgl522zw6oo2c/image_1cdgkkk7e1amqt8u1df51pkuvfd9.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/or09glysuvxgf0edfmoe5ux6/image_1cdglel7i1pkv1u1j7eaj8l1p9n9.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/jqszwzyfrhcvhuuff9j010n6/image_1cdgldm2h30v1s5o26j1fn4o354a.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/1pule5nwphl7edxv6dpjda0s/image_1cdglq537tme12tf1vv017oq1fv16.png">
-<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/1kk3cs2zii6429zkzcctigt2/image_1cdgm1noe1e9lusu1iq517glab01j.png">
-<meta property="og:updated_time" content="2018-06-18T10:20:42.685Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-dc3eca3927a5c8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-8917b793c3c9124b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-6830b146df7bbe2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-482edd47986f6816.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-7a7daf20952e43aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-e67e4bb6d224e359.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-4350eea7346a8194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-6f4482fa5a0f4bc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-07-12T02:05:43.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java(02)--百度云IoT学习">
-<meta name="twitter:description" content="一、百度云平台百度云平台中的物接入（IoT Hub）服务是一个全托管的云服务，帮助建立设备与云端之间安全可靠的双向连接，以支撑海量设备的数据采集、监控、故障预测灯各种物联网场景。我们可以用物接入来作为搭建物联网应用的第一步，本次主要学习的是百度云平台的物接入，该服务通过主流的物联网协议（MQTT）通讯，将硬件层设备的数据通过MQTT协议传输到百度云物接入云平台，存储到平台的数据库中并且定义规则，可">
-<meta name="twitter:image" content="http://static.zybuluo.com/Wang-1997/ucoim32lqg5z2cmhxi17e606/image_1ccsmjr8c1gnth1sdeq6701vog9.png">
+<meta name="twitter:title" content="Qt(03)--Windows下MQTT通信">
+<meta name="twitter:description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -174,73 +165,52 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java(02)--百度云IoT学习" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Qt(03)--Windows下MQTT通信" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java(02)--百度云IoT学习
+      Qt(03)--Windows下MQTT通信
     </h1>
   
 
         
-        <a href="/2018/06/18/Java(02)--百度云IoT学习/" class="archive-article-date">
-  	<time datetime="2018-06-18T09:19:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-18</time>
+        <a href="/2018/07/12/Qt(03)--Windows下MQTT通信/" class="archive-article-date">
+  	<time datetime="2018-07-12T02:03:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、百度云平台"><a href="#一、百度云平台" class="headerlink" title="一、百度云平台"></a>一、百度云平台</h3><p>百度云平台中的物接入（IoT Hub）服务是一个全托管的云服务，帮助建立设备与云端之间安全可靠的双向连接，以支撑海量设备的数据采集、监控、故障预测灯各种物联网场景。<br>我们可以用物接入来作为搭建物联网应用的第一步，本次主要学习的是百度云平台的物接入，该服务通过主流的物联网协议（MQTT）通讯，将硬件层设备的数据通过MQTT协议传输到百度云物接入云平台，存储到平台的数据库中并且定义规则，可根据规则将数据转发至硬件层或应用层。<br><a id="more"></a></p>
-<h3 id="二、MQTT协议"><a href="#二、MQTT协议" class="headerlink" title="二、MQTT协议"></a>二、MQTT协议</h3><p>MQTT（Message Queuing Telemetry Transport）是一个客户端服务端架构的发布/订阅模式的消息传输协议，MQTT协议的诸多特点使得它对于物联网场景是一种很好的选择。<br>大二时在实训课程中接触并学习了MQTT协议，当时使用Mosquitto搭建MQTT服务器，通过两台PC模拟客户端，并通过Java编程实现MQTT消息的订阅和发布。在这次百度云平台的学习中，需要设备通过MQTT协议向平台发送JSON格式的数据，在平台规则的控制下，平台再向设备或者应用端发送MQTT消息。这次学习过程中，我准备结合以前掌握的Java MQTT编程的相关知识深入学习百度云平台的使用。需要用到平台的MQTT托管服务和MQTT客户端。关于MQTT客户端我准备使用Java GUI和MQTT编程模拟真实物联网场景中的设备向云平台发送MQTT JSON消息以及模拟应用端接收报警消息。</p>
-<h3 id="三、平台测试流程"><a href="#三、平台测试流程" class="headerlink" title="三、平台测试流程"></a>三、平台测试流程</h3><ol>
-<li>注册并登陆IoT Hub</li>
-<li>创建计费套餐</li>
-<li>创建实例<ul>
-<li>完成前两步操作后，点击创建实例，输入全局唯一的名称，点击确定后实例创建成功，即可得到三个地址。<br><img src="http://static.zybuluo.com/Wang-1997/ucoim32lqg5z2cmhxi17e606/image_1ccsmjr8c1gnth1sdeq6701vog9.png" alt="image_1ccsmjr8c1gnth1sdeq6701vog9.png-23.6kB"></li>
-<li>创建实例的操作其实相当于在云平台上搭建了一个MQTT的服务器，我们可以通过平台提供的MQTT服务器地址去连接。三种不同的地址代表着三种不同的连接百度云的方式，tcp开头的地址表示通过tcp的方式连接不支持传输数据加密；ssl开头的地址表示支持SSL/TLS加密传输方式的连接；wss开头的地址表示Websockets方式连接并支持ssl加密。本次学习中，主要使用tcp和ssl方式。</li>
+        <h3 id="一、MQTT协议简介"><a href="#一、MQTT协议简介" class="headerlink" title="一、MQTT协议简介"></a>一、MQTT协议简介</h3><p>MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅者。这种模式这种通信模式的好处是接收者和发送者轻耦合，双方都只需与中介打交道，不需要关心另一方是谁和在哪里，并且方便接收者、发送者数量的增加和减少，很适用于分布式环境中。<br><a id="more"></a><br>其典型模式如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MQTT协议说明图.png"></p>
+<h3 id="二、环境说明"><a href="#二、环境说明" class="headerlink" title="二、环境说明"></a>二、环境说明</h3><ul>
+<li>Windows 10 x64</li>
+<li>Qt 5.11.1</li>
+<li>MinGW_32bit</li>
 </ul>
-</li>
-<li>创建设备<ul>
-<li>如果实例相当于一个物联网应用系统，那么设备就相当于整个物联网应用系统中的每一个硬件设备（例如：嵌入式单片机等设备）。</li>
-<li>创建一个设备：<br><img src="http://static.zybuluo.com/Wang-1997/1hzeg1fc849tegc2h2t8aejb/image_1ccsnllm8oqd1ebo1oqeu7n28p26.png" alt="image_1ccsnllm8oqd1ebo1oqeu7n28p26.png-16.2kB"></li>
-</ul>
-</li>
-<li>创建身份<ul>
-<li>身份代表设备的身份，每个设备可以绑定一个身份，每个身份可以拥有一个策略权限。其实身份就是SSL方式安全连接MQTT时的用户名和密码。</li>
-<li>创建一个身份：<br><img src="http://static.zybuluo.com/Wang-1997/n1kfwhdlxotnaighy27qqbrd/image_1ccsnn7lh7ljpvv1e3h12co1ogd33.png" alt="image_1ccsnn7lh7ljpvv1e3h12co1ogd33.png-12.8kB"></li>
-</ul>
-</li>
-<li>创建策略<ul>
-<li>每个身份对应的策略，策略可以配置权限，包括对Topic的“订阅/发送”权限的配置。</li>
-<li>在策略中创建主题，并授予该主题的权限：<br><img src="http://static.zybuluo.com/Wang-1997/akwuu8rxgpkrfm5k65rtil0p/image_1ccsnnnd311vrkus172vgf41kns3g.png" alt="image_1ccsnnnd311vrkus172vgf41画kns3g.png-13.1kB"></li>
-</ul>
-</li>
-<li>连接测试<ul>
-<li>在MQTT.fx中配置服务器：<br><img src="http://static.zybuluo.com/Wang-1997/g81va00to1yrq6jn73o028mp/image_1ccso1ra21dea1et9k8e8gj1r3m5t.png" alt="image_1ccso1ra21dea1et9k8e8gj1r3m5t.png-55.1kB"></li>
-<li>测试topic的收发：<br><img src="http://static.zybuluo.com/Wang-1997/qrti4f9c249xc65fun2o9j3j/image_1ccsob8ep8h11ec47k81hv7ngm6a.png" alt="image_1ccsob8ep8h11ec47k81hv7ngm6a.png-44.8kB"><br><img src="http://static.zybuluo.com/Wang-1997/vmt1attamgjpk39g8if19pbg/image_1ccsocj76e0e1r0dkbf1653fjh7n.png" alt="image_1ccsocj76e0e1r0dkbf1653fjh7n.png-96.7kB"></li>
-</ul>
-</li>
-</ol>
-<h3 id="四、消息转发学习"><a href="#四、消息转发学习" class="headerlink" title="四、消息转发学习"></a>四、消息转发学习</h3><p>收发测试通过后，说明已经成功在百度云上创建了一个物联网应用系统。接下来，如果是真实环境下就可以用真实设备向云MQTT服务器上传消息对接。现在学习使用百度云平台IoT Hub的消息转发功能，使用JAVA    GUI编写一个窗体程序，模拟真实环境中的嵌入式底层硬件设备向云平台上传数据。<br><img src="http://static.zybuluo.com/Wang-1997/g28yvgeq90u8m0cr2f9m4srt/image_1cdflfj5v1pr77e3mrj308t4om.png" alt="image_1cdflfj5v1pr77e3mrj308t4om.png-22.1kB"></p>
-<ol>
-<li>创建新规则：使用平台的消息转发功能，首先要在规则引擎中创建并配置一条新的规则。规则其实就是用户定义的平台对消息的处理方式，当底层硬件设备将消息通过MQTT协议上传到云平台后，我们可以通过创建并配置规则，将我们想要的数据过滤出来，转发到其它地方（比如其它Topic）。<br><img src="http://static.zybuluo.com/Wang-1997/paczhdsre1hbead9ms5znq4e/image_1cdfl4jht11b41vat1dol1t97ucd9.png" alt="image_1cdfl4jht11b41vat1dol1t97ucd9.png-9.5kB"></li>
-<li>配置规则：上一步创建了一个“温度大于40度报警”的规则，接下来就要配置该规则，实现从底层硬件设备上传的含有温度的消息筛选出温度大于40度的消息转发到另一个Topic。<br><img src="http://static.zybuluo.com/Wang-1997/dei67ippe4chljb0oq54y9vi/image_1cdflismg1gpp1k831lnvl8i1d7113.png" alt="image_1cdflismg1gpp1k831lnvl8i1d7113.png-39.8kB"></li>
-<li>运行Java代码进行消息转发测试：<br><img src="http://static.zybuluo.com/Wang-1997/uzg8edk350ut2uq2fxm20z48/image_1cdi4a100t8s10od1ved11kg1fh0m.png" alt="image_1cdi4a100t8s10od1ved11kg1fh0m.png-99kB"></li>
-<li>客户端：使用JAVA GUI编写一个窗体程序，模拟真实环境中移动端客户端接收报警数据。<br><img src="http://static.zybuluo.com/Wang-1997/iuxipb0o64zvjjxcksr2jxtr/image_1cdflpovg8g9e4v1lte15m41ofr2g.png" alt="image_1cdflpovg8g9e4v1lte15m41ofr2g.png-24.3kB"></li>
-<li>消息转发测试：<br>同时运行两个JAVA GUI程序，分别输入MQTT服务器的地址，用户名和密码，在底层硬件设备模拟端输入要发布消息的Topic，在客户端输入订阅警报消息的Topic，成功连接服务器后，在设备模拟端发送包含温度值的JSON字符串，因为此时字符串中温度值大于40度，满足规则引擎中的定义，所以在客户端我们在另一个Alarm报警topic中接收到了平台转发的报警消息。<br><img src="http://static.zybuluo.com/Wang-1997/ddkc5tl2ca3qd7d0vziqmgqp/image_1cdfm3l309aj1fqkvma1qre19ki2t.png" alt="image_1cdfm3l309aj1fqkvma1qre19ki2t.png-68.6kB"></li>
-</ol>
-<h3 id="五、时序数据库学习"><a href="#五、时序数据库学习" class="headerlink" title="五、时序数据库学习"></a>五、时序数据库学习</h3><p>时序数据库（Time Series Database）是本次学习中遇到的新东西，它与我们之前使用的关系型数据库不同，TSDB针对时间序列数据的存储、查询和展现进行了专门的优化，我认为TSDB基于时间戳存储上传数据的特性非常适合现有的物联网场景。在物联网场景中，底层嵌入式硬件设备众多，如何管理这些设备的数据是很大的难题，如果使用TSDB，在向云平台上传数据时附带一个当前时间的时间戳，这样TSDB就可以以时间序列线性存储这些数据，当用户查询数据时，可以生成Web图表，线性的展示数据基于时间的变化。</p>
-<ol>
-<li>向TSDB写入数据前先创建一个TSDB实例。新建TSDB实例：<br><img src="http://static.zybuluo.com/Wang-1997/qou2pjoeiukwgl522zw6oo2c/image_1cdgkkk7e1amqt8u1df51pkuvfd9.png" alt="image_1cdgkkk7e1amqt8u1df51pkuvfd9.png-39.1kB"></li>
-<li>创建TSDB后，此时TSDB还无法提供服务，因为并没有将设备与TSDB关联起来。此时需要创建新的规则引擎，筛选出我们需要的数据写入TSDB。新建一个规则“筛选出时序电压值，存到TSDB”：<br><img src="http://static.zybuluo.com/Wang-1997/or09glysuvxgf0edfmoe5ux6/image_1cdglel7i1pkv1u1j7eaj8l1p9n9.png" alt="image_1cdglel7i1pkv1u1j7eaj8l1p9n9.png-9.8kB"><br><img src="http://static.zybuluo.com/Wang-1997/jqszwzyfrhcvhuuff9j010n6/image_1cdgldm2h30v1s5o26j1fn4o354a.png" alt="image_1cdgldm2h30v1s5o26j1fn4o354a.png-47.3kB"></li>
-<li>规则创建成功后，就和设备的“topic02”联系起来，此时我们编程模拟真实设备向云平台发送带有时间戳的JSON字符串。<br><img src="http://static.zybuluo.com/Wang-1997/1pule5nwphl7edxv6dpjda0s/image_1cdglq537tme12tf1vv017oq1fv16.png" alt="image_1cdglq537tme12tf1vv017oq1fv16.png-128kB"></li>
-<li>运行程序后，数据上传到了TSDB，打开TSDB的查询面板，在Metrics中选择voltage，生成图表，即可看到基于时间序列生成的数据折线图。<br><img src="http://static.zybuluo.com/Wang-1997/1kk3cs2zii6429zkzcctigt2/image_1cdgm1noe1e9lusu1iq517glab01j.png" alt="image_1cdgm1noe1e9lusu1iq517glab01j.png-54.6kB"></li>
-</ol>
-<h3 id="六、学习心得"><a href="#六、学习心得" class="headerlink" title="六、学习心得"></a>六、学习心得</h3><p>在学习百度云平台之前，我还学习过Yeelink IoT平台、机智云IoT平台、OneNET中移物联网开放平台、华为OceanConnect IoT联接管理平台等IoT平台。在之前的学习中，大多是以真实的硬件（单片机）连接平台，将硬件的数据传给平台，Web以图表等形式展示或者转发到移动端。在之前学习的平台中，基本操作与百度云平台差不多，但是协议的使用上大多都是以TCP、UDP、EDP、HTTP等协议为主，联网方式以wifi、移动蜂窝数据、NB-IoT为主。<br>在此次的百度云平台学习中，我感觉与其它平台最大的不同点就是百度云平台固定了数据的传输协议为MQTT，不限制联网方式，不管以任何方式联网，只要使用MQTT作为数据传输的协议，都可以和百度云平台对接，MQTT是一个很适合物联网使用的传输协议，百度云平台提供了带加密或者不带加密的连接方式也很好的解决了安全性的问题，用户在使用时无需担心协议的选择，减小了云平台使用的难度，并且采用类SQL语言配置规则引擎，可以很好的对硬件设备上传的数据进行处理，包括引入TSDB时序数据库，解决了物联网数据的存储问题。但是在很多底层硬件设备上，如果不是运行Linux的嵌入式设备，在设备上使用MQTT协议的难度比tcp等协议要大很多。</p>
+<h3 id="三、编译MQTT源码"><a href="#三、编译MQTT源码" class="headerlink" title="三、编译MQTT源码"></a>三、编译MQTT源码</h3><p>目前Qt5.11中已经提供了类似TCP或者UDP的MQTT类，但是想要在低于此版本的Qt中使用MQTT协议，就需要自行编译开源MQTT消息服务EMQTT为Qt提供的QMQTT源码。<br>1.下载qmqtt源码<br><a href="http://github.com/emqtt/qmqtt" target="_blank" rel="noopener">qmqtt下载地址</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/emqtt/qmqtt</span><br></pre></td></tr></table></figure></p>
+<p> 2.编译qmqtt源码<br>下载qmqtt源码后，直接点击qmqtt文件夹下的Qt工程文件，右键点击工程 -&gt; 构建，编译中如图两个警告可暂时忽略。<br><img src="https://upload-images.jianshu.io/upload_images/9969251-dc3eca3927a5c8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译MQTT源码.png"></p>
+<p>3.编译完成后会生成一个Debug目录，如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-8917b793c3c9124b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译输出目录.png"></p>
+<p>4.新建一个工程，打开该工程的目录文件夹，将上一步Debug目录下的“include“文件夹、”lib“文件夹复制到新建的工程目录，将qmqtt源码文件夹下”src/mqtt“文件夹复制到新建的工程目录。新建的工程文件夹如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-6830b146df7bbe2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建工程目录.png"></p>
+<p>5.工程配置<br>在Qt中打开新建的工程，在.pro文件中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure></p>
+<p>右键点击工程 -&gt; 添加库，选择外部库</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9969251-482edd47986f6816.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选择外部库.png"></p>
+<p>点击下一步，点击“浏览”，定位到工程目录下的lib文件夹<br><img src="https://upload-images.jianshu.io/upload_images/9969251-7a7daf20952e43aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="lib文件夹.png"></p>
+<p>选择.a文件</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9969251-e67e4bb6d224e359.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加外部库.png"><br><img src="https://upload-images.jianshu.io/upload_images/9969251-4350eea7346a8194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="汇总.png"></p>
+<p>将lib目录下的两个.a文件均以此方式添加为外部库。</p>
+<p>在mainwindow.h中加入头文件引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;mqtt/qmqtt.h&quot;</span><br></pre></td></tr></table></figure></p>
+<p>编译工程，编译中会有报错提示，定位到错误位置，错误为两处头文件的引用，将两处#include &lt;qmqtt_global.h&gt;均改为#include “qmqtt_global.h”即可成功编译。<br>6.编写MQTT客户端<br>在mainwindow.h中定义MQTT事件的槽函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 槽函数定义</span><br><span class="line">private slots:</span><br><span class="line">    void onMQTT_Connected();</span><br><span class="line">    void onMQTT_Subscribed(const QString &amp;topic);</span><br><span class="line">    void onMQTT_Received(const QMQTT::Message &amp;message);</span><br></pre></td></tr></table></figure></p>
+<p>新建MQTT客户端并连接槽函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QMQTT::Client *client;</span><br><span class="line">client = new QMQTT::Client(QHostAddress(&quot;127.0.0.1&quot;), 1883);</span><br><span class="line">client-&gt;connectToHost();</span><br><span class="line">connect(client, SIGNAL(connected()), this, SLOT(onMQTT_Connected()));</span><br><span class="line">connect(client, SIGNAL(subscribed(const QString &amp;)), this, SLOT(onMQTT_Subscribed(QString)));</span><br><span class="line">connect(client, SIGNAL(received(const QMQTT::Message &amp;)), this, SLOT(onMQTT_Received(QMQTT::Message)));</span><br></pre></td></tr></table></figure></p>
+<p>MQTT槽函数的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 成功连接到MQTT服务器</span><br><span class="line">void MainWindow::onMQTT_Connected()&#123;&#125;</span><br><span class="line">// 成功订阅主题</span><br><span class="line">void MainWindow::onMQTT_Subscribed(const QString &amp;topic)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(topic);</span><br><span class="line">&#125;</span><br><span class="line">// 接收到消息</span><br><span class="line">void MainWindow::onMQTT_Received(const QMQTT::Message &amp;message)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(message.topic());</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(message.payload());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>订阅主题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QString topicSub = &quot;test&quot;;</span><br><span class="line">quint8 qosSub = 0;</span><br><span class="line">client-&gt;subscribe(topicSub, qosSub);</span><br></pre></td></tr></table></figure></p>
+<p>发布主题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QString topicPub = &quot;test&quot;;</span><br><span class="line">QString messagePub = &quot;123&quot;;</span><br><span class="line">QMQTT::Message msg(0, topicPub.toLatin1(), messagePub.toLatin1());</span><br><span class="line">client-&gt;publish(msg);</span><br></pre></td></tr></table></figure></p>
+<p>7.MQTT客户端测试</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/9969251-6f4482fa5a0f4bc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MQTT测试.png"></p>
+<p><a href="https://github.com/mooncoder1997/Qt-Projects/tree/master/MQTT_Client" target="_blank" rel="noopener">点击下载该工程代码</a></p>
 
       
 
@@ -285,7 +255,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
         		</li>
       		
 		</ul>
@@ -341,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/06/18/Java(02)--百度云IoT学习/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/12/Qt(03)--Windows下MQTT通信/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -355,18 +325,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/07/05/Qt(01)--树莓派LED灯/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Qt(01)--树莓派LED灯
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/06/18/Java(01)--GUI实现字符串与16进制HEX互转/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java(01)--GUI实现字符串与16进制HEX互转</div>
+    <a href="/2018/07/06/Qt(02)--UDP通信/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Qt(02)--UDP通信</div>
       <i class="icon-circle-right"></i>
     </a>
   
