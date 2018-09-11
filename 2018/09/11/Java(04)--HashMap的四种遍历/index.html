@@ -6,30 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Qt(03)--Windows下MQTT通信 | WHY&#39;s Blog</title>
+  <title>Java(04)--HashMap的四种遍历 | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
-<meta name="keywords" content="Qt">
+  <meta name="description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Qt(03)--Windows下MQTT通信">
-<meta property="og:url" content="http://yoursite.com/2018/07/12/Qt(03)--Windows下MQTT通信/index.html">
+<meta property="og:title" content="Java(04)--HashMap的四种遍历">
+<meta property="og:url" content="http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
-<meta property="og:description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
+<meta property="og:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-dc3eca3927a5c8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-8917b793c3c9124b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-6830b146df7bbe2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-482edd47986f6816.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-7a7daf20952e43aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-e67e4bb6d224e359.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-4350eea7346a8194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9969251-6f4482fa5a0f4bc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2018-07-12T02:05:43.853Z">
+<meta property="og:updated_time" content="2018-09-11T12:33:59.367Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Qt(03)--Windows下MQTT通信">
-<meta name="twitter:description" content="一、MQTT协议简介MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Java(04)--HashMap的四种遍历">
+<meta name="twitter:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -165,52 +155,32 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Qt(03)--Windows下MQTT通信" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java(04)--HashMap的四种遍历" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Qt(03)--Windows下MQTT通信
+      Java(04)--HashMap的四种遍历
     </h1>
   
 
         
-        <a href="/2018/07/12/Qt(03)--Windows下MQTT通信/" class="archive-article-date">
-  	<time datetime="2018-07-12T02:03:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-12</time>
+        <a href="/2018/09/11/Java(04)--HashMap的四种遍历/" class="archive-article-date">
+  	<time datetime="2018-09-11T12:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="一、MQTT协议简介"><a href="#一、MQTT协议简介" class="headerlink" title="一、MQTT协议简介"></a>一、MQTT协议简介</h3><p>MQTT消息报文的方式包括connect, disconnect, subscribe, unsubscribe, publish等（类似于HTTP请求行的方法字段）。MQTT的消息模型为publish-subscribe （发布-订阅模式），接收者(subscriber)向中介(broker)提交订阅自己感兴趣的内容，发送者(broker)把消息发送给中介，再由中介发送给订阅者。这种模式这种通信模式的好处是接收者和发送者轻耦合，双方都只需与中介打交道，不需要关心另一方是谁和在哪里，并且方便接收者、发送者数量的增加和减少，很适用于分布式环境中。<br><a id="more"></a><br>其典型模式如图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-959ce1a6081bbd07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MQTT协议说明图.png"></p>
-<h3 id="二、环境说明"><a href="#二、环境说明" class="headerlink" title="二、环境说明"></a>二、环境说明</h3><ul>
-<li>Windows 10 x64</li>
-<li>Qt 5.11.1</li>
-<li>MinGW_32bit</li>
-</ul>
-<h3 id="三、编译MQTT源码"><a href="#三、编译MQTT源码" class="headerlink" title="三、编译MQTT源码"></a>三、编译MQTT源码</h3><p>目前Qt5.11中已经提供了类似TCP或者UDP的MQTT类，但是想要在低于此版本的Qt中使用MQTT协议，就需要自行编译开源MQTT消息服务EMQTT为Qt提供的QMQTT源码。<br>1.下载qmqtt源码<br><a href="http://github.com/emqtt/qmqtt" target="_blank" rel="noopener">qmqtt下载地址</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/emqtt/qmqtt</span><br></pre></td></tr></table></figure></p>
-<p> 2.编译qmqtt源码<br>下载qmqtt源码后，直接点击qmqtt文件夹下的Qt工程文件，右键点击工程 -&gt; 构建，编译中如图两个警告可暂时忽略。<br><img src="https://upload-images.jianshu.io/upload_images/9969251-dc3eca3927a5c8c1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译MQTT源码.png"></p>
-<p>3.编译完成后会生成一个Debug目录，如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-8917b793c3c9124b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="编译输出目录.png"></p>
-<p>4.新建一个工程，打开该工程的目录文件夹，将上一步Debug目录下的“include“文件夹、”lib“文件夹复制到新建的工程目录，将qmqtt源码文件夹下”src/mqtt“文件夹复制到新建的工程目录。新建的工程文件夹如下图所示：<br><img src="https://upload-images.jianshu.io/upload_images/9969251-6830b146df7bbe2d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="新建工程目录.png"></p>
-<p>5.工程配置<br>在Qt中打开新建的工程，在.pro文件中加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">QT += network</span><br></pre></td></tr></table></figure></p>
-<p>右键点击工程 -&gt; 添加库，选择外部库</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9969251-482edd47986f6816.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选择外部库.png"></p>
-<p>点击下一步，点击“浏览”，定位到工程目录下的lib文件夹<br><img src="https://upload-images.jianshu.io/upload_images/9969251-7a7daf20952e43aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="lib文件夹.png"></p>
-<p>选择.a文件</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9969251-e67e4bb6d224e359.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加外部库.png"><br><img src="https://upload-images.jianshu.io/upload_images/9969251-4350eea7346a8194.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="汇总.png"></p>
-<p>将lib目录下的两个.a文件均以此方式添加为外部库。</p>
-<p>在mainwindow.h中加入头文件引用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &quot;mqtt/qmqtt.h&quot;</span><br></pre></td></tr></table></figure></p>
-<p>编译工程，编译中会有报错提示，定位到错误位置，错误为两处头文件的引用，将两处#include &lt;qmqtt_global.h&gt;均改为#include “qmqtt_global.h”即可成功编译。<br>6.编写MQTT客户端<br>在mainwindow.h中定义MQTT事件的槽函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 槽函数定义</span><br><span class="line">private slots:</span><br><span class="line">    void onMQTT_Connected();</span><br><span class="line">    void onMQTT_Subscribed(const QString &amp;topic);</span><br><span class="line">    void onMQTT_Received(const QMQTT::Message &amp;message);</span><br></pre></td></tr></table></figure></p>
-<p>新建MQTT客户端并连接槽函数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">QMQTT::Client *client;</span><br><span class="line">client = new QMQTT::Client(QHostAddress(&quot;127.0.0.1&quot;), 1883);</span><br><span class="line">client-&gt;connectToHost();</span><br><span class="line">connect(client, SIGNAL(connected()), this, SLOT(onMQTT_Connected()));</span><br><span class="line">connect(client, SIGNAL(subscribed(const QString &amp;)), this, SLOT(onMQTT_Subscribed(QString)));</span><br><span class="line">connect(client, SIGNAL(received(const QMQTT::Message &amp;)), this, SLOT(onMQTT_Received(QMQTT::Message)));</span><br></pre></td></tr></table></figure></p>
-<p>MQTT槽函数的实现：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 成功连接到MQTT服务器</span><br><span class="line">void MainWindow::onMQTT_Connected()&#123;&#125;</span><br><span class="line">// 成功订阅主题</span><br><span class="line">void MainWindow::onMQTT_Subscribed(const QString &amp;topic)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(topic);</span><br><span class="line">&#125;</span><br><span class="line">// 接收到消息</span><br><span class="line">void MainWindow::onMQTT_Received(const QMQTT::Message &amp;message)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(message.topic());</span><br><span class="line">    ui-&gt;plainTextEdit-&gt;appendPlainText(message.payload());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>订阅主题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">QString topicSub = &quot;test&quot;;</span><br><span class="line">quint8 qosSub = 0;</span><br><span class="line">client-&gt;subscribe(topicSub, qosSub);</span><br></pre></td></tr></table></figure></p>
-<p>发布主题：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">QString topicPub = &quot;test&quot;;</span><br><span class="line">QString messagePub = &quot;123&quot;;</span><br><span class="line">QMQTT::Message msg(0, topicPub.toLatin1(), messagePub.toLatin1());</span><br><span class="line">client-&gt;publish(msg);</span><br></pre></td></tr></table></figure></p>
-<p>7.MQTT客户端测试</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/9969251-6f4482fa5a0f4bc8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="MQTT测试.png"></p>
-<p><a href="https://github.com/mooncoder1997/Qt-Projects/tree/master/MQTT_Client" target="_blank" rel="noopener">点击下载该工程代码</a></p>
+        <p>测试用例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    map.put(<span class="string">"k1"</span>, <span class="string">"v1"</span>);</span><br><span class="line">    map.put(<span class="string">"k2"</span>, <span class="string">"v2"</span>);</span><br><span class="line">    map.put(<span class="string">"k3"</span>, <span class="string">"v3"</span>);</span><br><span class="line">    map.put(<span class="string">"k4"</span>, <span class="string">"v4"</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="1-通过Map-keySey遍历key值，取出对应的value"><a href="#1-通过Map-keySey遍历key值，取出对应的value" class="headerlink" title="1. 通过Map.keySey遍历key值，取出对应的value"></a>1. 通过Map.keySey遍历key值，取出对应的value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 通过Map.keySey遍历key值，取出对应的value</span></span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + key + <span class="string">" Value: "</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="2-通过Map-entrySet使用iterator遍历"><a href="#2-通过Map-entrySet使用iterator遍历" class="headerlink" title="2. 通过Map.entrySet使用iterator遍历"></a>2. 通过Map.entrySet使用iterator遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = map.entrySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    Map.Entry&lt;String, String&gt; entry = (Map.Entry&lt;String, String&gt;) iterator.next();</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-通过Map-entrySet遍历"><a href="#3-通过Map-entrySet遍历" class="headerlink" title="3. 通过Map.entrySet遍历"></a>3. 通过Map.entrySet遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-通过Map-values-遍历value"><a href="#4-通过Map-values-遍历value" class="headerlink" title="4. 通过Map.values()遍历value"></a>4. 通过Map.values()遍历value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String string : map.values()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"The value is "</span> + string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -255,7 +225,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Qt</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
         		</li>
       		
 		</ul>
@@ -311,7 +281,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/12/Qt(03)--Windows下MQTT通信/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -325,18 +295,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/07/Java(03)--利用反射抽取Servlet基类/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Java(03)--利用反射抽取Servlet基类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/06/Qt(02)--UDP通信/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Qt(02)--UDP通信</div>
+    <a href="/2018/09/07/Java(03)--利用反射抽取Servlet基类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java(03)--利用反射抽取Servlet基类</div>
       <i class="icon-circle-right"></i>
     </a>
   
