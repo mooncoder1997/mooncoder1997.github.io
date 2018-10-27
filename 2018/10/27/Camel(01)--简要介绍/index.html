@@ -6,20 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java(04)--HashMap的四种遍历 | WHY&#39;s Blog</title>
+  <title>Camel(01)--简要介绍 | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
-<meta name="keywords" content="Java">
+  <meta name="description" content="引言最近实习中接触到的项目使用Apache Camel作为服务间的路由，深感Camel强大之处，于是决定深入学习Camel的原理及使用。我在学习Camel的过程中主要以阅读Camel的官方文档以及in Action》```书籍和编写Demo练习的方式。这一系列文章将围绕Camel的背景、作用、特色、组件等详细介绍Camel的原理和使用。1234567891011121314151617181920">
+<meta name="keywords" content="Apache Camel">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java(04)--HashMap的四种遍历">
-<meta property="og:url" content="http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/index.html">
+<meta property="og:title" content="Camel(01)--简要介绍">
+<meta property="og:url" content="http://yoursite.com/2018/10/27/Camel(01)--简要介绍/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
-<meta property="og:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+<meta property="og:description" content="引言最近实习中接触到的项目使用Apache Camel作为服务间的路由，深感Camel强大之处，于是决定深入学习Camel的原理及使用。我在学习Camel的过程中主要以阅读Camel的官方文档以及in Action》```书籍和编写Demo练习的方式。这一系列文章将围绕Camel的背景、作用、特色、组件等详细介绍Camel的原理和使用。1234567891011121314151617181920">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-11T12:33:59.367Z">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/t5wo7ts3j9s5bubrxi2y1jr8/image.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/xew12ymk9nzqsfhgpfe0y55e/image.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/n5430zhsb3dlpy0w5jh2k5ss/image.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/5pl2cbp287e0tn0ctqmvl5gq/image.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/wth3tppr3nronf3ub1hv8hs8/image_1cq3mtjec1a1819eg150hsnb4h39.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/d3lp4u9qxsnxl8snh25yjrsj/image.png">
+<meta property="og:image" content="http://static.zybuluo.com/Wang-1997/nevc2t9idu0wrzeaz4jhp6y4/image.png">
+<meta property="og:updated_time" content="2018-10-27T16:13:13.960Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java(04)--HashMap的四种遍历">
-<meta name="twitter:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+<meta name="twitter:title" content="Camel(01)--简要介绍">
+<meta name="twitter:description" content="引言最近实习中接触到的项目使用Apache Camel作为服务间的路由，深感Camel强大之处，于是决定深入学习Camel的原理及使用。我在学习Camel的过程中主要以阅读Camel的官方文档以及in Action》```书籍和编写Demo练习的方式。这一系列文章将围绕Camel的背景、作用、特色、组件等详细介绍Camel的原理和使用。1234567891011121314151617181920">
+<meta name="twitter:image" content="http://static.zybuluo.com/Wang-1997/t5wo7ts3j9s5bubrxi2y1jr8/image.png">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -155,32 +163,70 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java(04)--HashMap的四种遍历" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Camel(01)--简要介绍" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java(04)--HashMap的四种遍历
+      Camel(01)--简要介绍
     </h1>
   
 
         
-        <a href="/2018/09/11/Java(04)--HashMap的四种遍历/" class="archive-article-date">
-  	<time datetime="2018-09-11T12:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
+        <a href="/2018/10/27/Camel(01)--简要介绍/" class="archive-article-date">
+  	<time datetime="2018-10-27T15:47:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试用例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    map.put(<span class="string">"k1"</span>, <span class="string">"v1"</span>);</span><br><span class="line">    map.put(<span class="string">"k2"</span>, <span class="string">"v2"</span>);</span><br><span class="line">    map.put(<span class="string">"k3"</span>, <span class="string">"v3"</span>);</span><br><span class="line">    map.put(<span class="string">"k4"</span>, <span class="string">"v4"</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-通过Map-keySey遍历key值，取出对应的value"><a href="#1-通过Map-keySey遍历key值，取出对应的value" class="headerlink" title="1. 通过Map.keySey遍历key值，取出对应的value"></a>1. 通过Map.keySey遍历key值，取出对应的value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 通过Map.keySey遍历key值，取出对应的value</span></span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + key + <span class="string">" Value: "</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="2-通过Map-entrySet使用iterator遍历"><a href="#2-通过Map-entrySet使用iterator遍历" class="headerlink" title="2. 通过Map.entrySet使用iterator遍历"></a>2. 通过Map.entrySet使用iterator遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = map.entrySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    Map.Entry&lt;String, String&gt; entry = (Map.Entry&lt;String, String&gt;) iterator.next();</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-通过Map-entrySet遍历"><a href="#3-通过Map-entrySet遍历" class="headerlink" title="3. 通过Map.entrySet遍历"></a>3. 通过Map.entrySet遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-通过Map-values-遍历value"><a href="#4-通过Map-values-遍历value" class="headerlink" title="4. 通过Map.values()遍历value"></a>4. 通过Map.values()遍历value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String string : map.values()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"The value is "</span> + string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>最近实习中接触到的项目使用Apache Camel作为服务间的路由，深感Camel强大之处，于是决定深入学习Camel的原理及使用。<br>我在学习Camel的过程中主要以阅读Camel的官方文档以及<figure class="highlight plain"><figcaption><span>in Action》```书籍和编写Demo练习的方式。这一系列文章将围绕Camel的背景、作用、特色、组件等详细介绍Camel的原理和使用。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br><span class="line"></span><br><span class="line">Apache Camel是一个功能强大的开源集成框架，基于已知的企业集成模式和强大的bean集成。Camel项目于2007年初启动，Camel的重点是简化集成。Camel框架的核心是路由引擎，或者更确切地说是一个路由引擎建造者。它允许自定义路由规则，从中决定来源接受消息并确定如何处理和发送这些消息到其他目的地。Camel吸引我的地方也正是其灵活的路由，再佐以可插拔的组件，使其可以在不同的应用中灵活的传递、转换和控制消息。</span><br><span class="line"></span><br><span class="line">Camel的原则之一是它没有做出任何假设你需要处理的数据类型，这是一个重点，因为我们有机会集成任何类型的系统，从而无需将数据转换为规范格式。</span><br><span class="line"></span><br><span class="line">## 介绍</span><br><span class="line">Camel允许您创建EIP（Enterpise Integration Patterns, 企业集成模式），以基于Java的DSL（Domain Specific Language, 域特定语言）或Fluent API，通过Spring或Blueprint的xml配置文件或者通过Scala DSL来实现路由和中介规则。这意味着无论是在Java、Scala或者是XML编辑器中都可以在IDE中使用自动提示从而智能地完成路由规则。</span><br><span class="line"></span><br><span class="line">Apache Camel使用URIs，因此它可以借助可插入的数据格式选项轻松的与任何类型的传输或消息传递模型（如HTTP、ActiveMQ、JMS、JBI、SCA、MINA或CXF）一起使用。Apache Camel是一个小型的库，具有最小的依赖性，可以轻松嵌入任何Java应用程序。无论使用何种传输方式，Apache Camel都使用相同的API，因此只需要学习一次API即可与开箱即用的所有组件进行交互。</span><br><span class="line"></span><br><span class="line">Apache Camel具有强大的Bean绑定功能，可与Spring、CDI、Blueprint和Guice等流行框架无缝集成。</span><br><span class="line"></span><br><span class="line">Apache Camel拥有广泛的测试支持，可以轻松的对路由进行单元测试。</span><br><span class="line"></span><br><span class="line">## 组件</span><br><span class="line">Apache Camel附带了许多组件，数据格式和语言等。</span><br><span class="line"></span><br><span class="line">## DSL</span><br><span class="line">以下示例为路由文件从文件夹到JMS对列。</span><br><span class="line"> - Java DSL</span><br><span class="line">```java</span><br><span class="line">from(&quot;file:data/inbox&quot;).to(&quot;jms:queue:order&quot;);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>Spring DSL<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">route</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">from</span> <span class="attr">uri</span>=<span class="string">"file:data/inbox"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">to</span> <span class="attr">uri</span>=<span class="string">"jms:queue:order"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">route</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Camel DSL使用Java等真正的编程语言，因此您可以使用现有的工具支持。在这里，您可以看到Eclipse IDE的自动完成功能如何为我们提供DSL列表:</p>
+<p><img src="http://static.zybuluo.com/Wang-1997/t5wo7ts3j9s5bubrxi2y1jr8/image.png" alt="image.png-202.5kB"></p>
+<h2 id="Camel消息模型"><a href="#Camel消息模型" class="headerlink" title="Camel消息模型"></a>Camel消息模型</h2><p>在Camel中有两种消息模型的抽象。</p>
+<ul>
+<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- ```org.apache.camel.Exchange</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="Message"><a href="#Message" class="headerlink" title="Message"></a>Message</h3><p>Message是系统在使用时彼此通信的实体消息渠道。Message从发送者到接收者以一个方向流动:</p>
+<p><img src="http://static.zybuluo.com/Wang-1997/xew12ymk9nzqsfhgpfe0y55e/image.png" alt="image.png-12.1kB"></p>
+<p>Message有一个Body、headers和可选的attachments:</p>
+<p><img src="http://static.zybuluo.com/Wang-1997/n5430zhsb3dlpy0w5jh2k5ss/image.png" alt="image.png-18.4kB"></p>
+<h3 id="Exchange"><a href="#Exchange" class="headerlink" title="Exchange"></a>Exchange</h3><p>Camel中的Exchange是路由期间消息的容器，Exchange也为系统之间的各种类型的交互提供支持，也成为消息交换模式MEP。  </p>
+<ul>
+<li><strong><em>ExchangeID</em></strong><br>一个Exchange贯穿着整个编排的路由规则，ExchangeID就是它的唯一编号信息，同一个路由规则的不同实例（对路由规则分别独立的两次执行），ExchangeID不相同。</li>
+<li><strong><em>from Endpoint</em></strong><br>表示exchange实例初始来源的Endpoint控制端点（类的实例），一般来说就是开发人员设置路由时由“from”关键字所表达的Endpoint。</li>
+<li><p><strong><em>properties</em></strong><br>Exchange对象贯穿整个路由执行过程中的控制端点、处理器甚至还有表达式、路由条件判断。为了让这些元素能够共享一些开发人员自定义的参数配置信息，Exchange以K-V结构提供了这样的参数配置信息存储方式。在 <figure class="highlight plain"><figcaption><span>类中，对应properties的实现代码如下所示：</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"> </span><br></pre></td></tr></table></figure></p>
+<p> public Map&lt;String, Object&gt; getProperties() {</p>
+<pre><code>if (properties == null) {
+    properties = new ConcurrentHashMap&lt;String, Object&gt;();
+}
+return properties;
+</code></pre><p> }<br> <code>`</code></p>
+</li>
+<li><p><strong><em>Pattern</em></strong><br>Exchange中的pattern属性非常重要，它的全称是：ExchangePattern（交换器工作模式）。其实现是一个枚举类型：  <code>org.apache.camel.ExchangePattern</code> 。可以使用的值包括：InOnly, RobustInOnly, InOut, InOptionalOut, OutOnly, RobustOutOnly, OutIn, OutOptionalIn。从Camel官方已公布的文档来看，这个属性描述了Exchange中消息的传播方式:</p>
+<p> <img src="http://static.zybuluo.com/Wang-1997/5pl2cbp287e0tn0ctqmvl5gq/image.png" alt="image.png-49kB"></p>
+<p> <img src="http://static.zybuluo.com/Wang-1997/wth3tppr3nronf3ub1hv8hs8/image_1cq3mtjec1a1819eg150hsnb4h39.png" alt="image_1cq3mtjec1a1819eg150hsnb4h39.png-29kB"></p>
+<h3 id="Exchange中的Message"><a href="#Exchange中的Message" class="headerlink" title="Exchange中的Message"></a>Exchange中的Message</h3><p>Exchange中还有两个重要属性inMessage和outMessage。这两个属性分别代表Exchange在某个处理元素（处理器、表达式等）上的输入消息和输出消息。</p>
+</li>
+</ul>
+<p>当控制端点和处理器、处理器和处理器间的Message在Exchange中传递时Exchange会自动将上一个元素的输出值作为作为这个元素的输入值进行使用。但是如果在上一个处理器中，开发人员没有在Exchange中设置任何out message内容（即Excahnge中out属性为null），那么上一个处理器中的in message内容将作为这个处理器的in message内容。</p>
+<h2 id="Camel架构"><a href="#Camel架构" class="headerlink" title="Camel架构"></a>Camel架构</h2><p><img src="http://static.zybuluo.com/Wang-1997/d3lp4u9qxsnxl8snh25yjrsj/image.png" alt="image.png-123.3kB"></p>
+<h3 id="CamelContext"><a href="#CamelContext" class="headerlink" title="CamelContext"></a>CamelContext</h3><p><img src="http://static.zybuluo.com/Wang-1997/nevc2t9idu0wrzeaz4jhp6y4/image.png" alt="image.png-37.1kB"></p>
+<h3 id="Routes"><a href="#Routes" class="headerlink" title="Routes"></a>Routes</h3><ul>
+<li>动态决定客户端将调用哪个服务器</li>
+<li>提供灵活的方式来添加额外的处理</li>
+<li>允许独立开发客户端和服务器</li>
+<li>允许将服务器的客户端存根（使用模拟）进行测试</li>
+<li>增强某些系统的功能和特性（例如消息代理和ESBs）</li>
+</ul>
 
       
 
@@ -225,7 +271,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Apache Camel</a>
         		</li>
       		
 		</ul>
@@ -281,7 +327,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/27/Camel(01)--简要介绍/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,18 +341,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/27/Camel(01)--简要介绍/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Camel(01)--简要介绍
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/07/Java(03)--利用反射抽取Servlet基类/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java(03)--利用反射抽取Servlet基类</div>
+    <a href="/2018/09/11/Java(04)--HashMap的四种遍历/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java(04)--HashMap的四种遍历</div>
       <i class="icon-circle-right"></i>
     </a>
   
