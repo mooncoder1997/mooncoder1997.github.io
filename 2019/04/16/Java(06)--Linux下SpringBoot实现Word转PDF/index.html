@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java(04)--HashMap的四种遍历 | WHY&#39;s Blog</title>
+  <title>Java(06)--Linux下SpringBoot实现Word转PDF | WHY&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+  <meta name="description" content="引言最近由于项目需要一个Word在线预览的功能，由于考虑基于Linux平台做部署，实现真正的Word在线预览是不现实的，所以考虑通过Word转PDF实现PDF的在线预览。 经过一番研究，试了多种方式包括POI实现Word转PDF，以及Word转HTML再转PDF等方式，但均存在操作非常复杂和效果不理想以及兼容性不好等问题，最终锁定借助LibreOffice实现Word转PDF的方案。 Linux安">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java(04)--HashMap的四种遍历">
-<meta property="og:url" content="http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/index.html">
+<meta property="og:title" content="Java(06)--Linux下SpringBoot实现Word转PDF">
+<meta property="og:url" content="http://yoursite.com/2019/04/16/Java(06)--Linux下SpringBoot实现Word转PDF/index.html">
 <meta property="og:site_name" content="WHY&#39;s Blog">
-<meta property="og:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+<meta property="og:description" content="引言最近由于项目需要一个Word在线预览的功能，由于考虑基于Linux平台做部署，实现真正的Word在线预览是不现实的，所以考虑通过Word转PDF实现PDF的在线预览。 经过一番研究，试了多种方式包括POI实现Word转PDF，以及Word转HTML再转PDF等方式，但均存在操作非常复杂和效果不理想以及兼容性不好等问题，最终锁定借助LibreOffice实现Word转PDF的方案。 Linux安">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-11T12:33:59.000Z">
+<meta property="og:updated_time" content="2019-04-16T05:36:25.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java(04)--HashMap的四种遍历">
-<meta name="twitter:description" content="测试用例：12345Map&amp;lt;String, String&amp;gt; map = new HashMap&amp;lt;String, String&amp;gt;();    map.put(&quot;k1&quot;, &quot;v1&quot;);    map.put(&quot;k2&quot;, &quot;v2&quot;);    map.put(&quot;k3&quot;, &quot;v3&quot;);    map.put(&quot;k4&quot;, &quot;v4&quot;); 1. 通过Map.keySey遍历key值，取出">
+<meta name="twitter:title" content="Java(06)--Linux下SpringBoot实现Word转PDF">
+<meta name="twitter:description" content="引言最近由于项目需要一个Word在线预览的功能，由于考虑基于Linux平台做部署，实现真正的Word在线预览是不现实的，所以考虑通过Word转PDF实现PDF的在线预览。 经过一番研究，试了多种方式包括POI实现Word转PDF，以及Word转HTML再转PDF等方式，但均存在操作非常复杂和效果不理想以及兼容性不好等问题，最终锁定借助LibreOffice实现Word转PDF的方案。 Linux安">
   
     <link rel="alternative" href="/atom.xml" title="WHY&#39;s Blog" type="application/atom+xml">
   
@@ -167,32 +167,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Java(04)--HashMap的四种遍历" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java(06)--Linux下SpringBoot实现Word转PDF" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Java(04)--HashMap的四种遍历
+      Java(06)--Linux下SpringBoot实现Word转PDF
     </h1>
   
 
         
-        <a href="/2018/09/11/Java(04)--HashMap的四种遍历/" class="archive-article-date">
-  	<time datetime="2018-09-11T12:28:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-11</time>
+        <a href="/2019/04/16/Java(06)--Linux下SpringBoot实现Word转PDF/" class="archive-article-date">
+  	<time datetime="2019-04-15T16:20:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试用例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;String, String&gt;();</span><br><span class="line">    map.put(<span class="string">"k1"</span>, <span class="string">"v1"</span>);</span><br><span class="line">    map.put(<span class="string">"k2"</span>, <span class="string">"v2"</span>);</span><br><span class="line">    map.put(<span class="string">"k3"</span>, <span class="string">"v3"</span>);</span><br><span class="line">    map.put(<span class="string">"k4"</span>, <span class="string">"v4"</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="1-通过Map-keySey遍历key值，取出对应的value"><a href="#1-通过Map-keySey遍历key值，取出对应的value" class="headerlink" title="1. 通过Map.keySey遍历key值，取出对应的value"></a>1. 通过Map.keySey遍历key值，取出对应的value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 通过Map.keySey遍历key值，取出对应的value</span></span><br><span class="line"><span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + key + <span class="string">" Value: "</span> + map.get(key));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="2-通过Map-entrySet使用iterator遍历"><a href="#2-通过Map-entrySet使用iterator遍历" class="headerlink" title="2. 通过Map.entrySet使用iterator遍历"></a>2. 通过Map.entrySet使用iterator遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Iterator iterator = map.entrySet().iterator();</span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">    Map.Entry&lt;String, String&gt; entry = (Map.Entry&lt;String, String&gt;) iterator.next();</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3-通过Map-entrySet遍历"><a href="#3-通过Map-entrySet遍历" class="headerlink" title="3. 通过Map.entrySet遍历"></a>3. 通过Map.entrySet遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (Map.Entry&lt;String, String&gt; entry : map.entrySet()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"Key: "</span> + entry.getKey() + <span class="string">" Value: "</span> + entry.getValue());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4-通过Map-values-遍历value"><a href="#4-通过Map-values-遍历value" class="headerlink" title="4. 通过Map.values()遍历value"></a>4. 通过Map.values()遍历value</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (String string : map.values()) &#123;</span><br><span class="line">    System.out.println(<span class="string">"The value is "</span> + string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>最近由于项目需要一个Word在线预览的功能，由于考虑基于Linux平台做部署，实现真正的Word在线预览是不现实的，所以考虑通过Word转PDF实现PDF的在线预览。</p>
+<p>经过一番研究，试了多种方式包括POI实现Word转PDF，以及Word转HTML再转PDF等方式，但均存在操作非常复杂和效果不理想以及兼容性不好等问题，最终锁定借助LibreOffice实现Word转PDF的方案。</p>
+<h2 id="Linux安装LibreOffice"><a href="#Linux安装LibreOffice" class="headerlink" title="Linux安装LibreOffice"></a>Linux安装LibreOffice</h2><a id="more"></a>
+<h3 id="1-访问http-download-documentfoundation-org-libreoffice-stable-6-2-2-deb-x86-64-下载离线安装包："><a href="#1-访问http-download-documentfoundation-org-libreoffice-stable-6-2-2-deb-x86-64-下载离线安装包：" class="headerlink" title="1.访问http://download.documentfoundation.org/libreoffice/stable/6.2.2/deb/x86_64/  下载离线安装包："></a>1.访问<a href="http://download.documentfoundation.org/libreoffice/stable/6.2.2/deb/x86_64/" target="_blank" rel="noopener">http://download.documentfoundation.org/libreoffice/stable/6.2.2/deb/x86_64/</a>  下载离线安装包：</h3><ul>
+<li>LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz</li>
+<li>LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz</li>
+<li>LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz</li>
+</ul>
+<h3 id="2-将三个安装包复制到Linux系统，执行以下指令："><a href="#2-将三个安装包复制到Linux系统，执行以下指令：" class="headerlink" title="2.将三个安装包复制到Linux系统，执行以下指令："></a>2.将三个安装包复制到Linux系统，执行以下指令：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">sudo mkdir /opt/libreoffice</span><br><span class="line"></span><br><span class="line">sudo tar -zxvf LibreOffice_6.2.2_Linux_x86-64_deb.tar.gz -C /opt/libreoffice/</span><br><span class="line"></span><br><span class="line">sudo tar -zxvf LibreOffice_6.2.2_Linux_x86-64_deb_langpack_zh-CN.tar.gz -C /opt/libreoffice/</span><br><span class="line"></span><br><span class="line">sudo tar -zxvf LibreOffice_6.2.2_Linux_x86-64_deb_sdk.tar.gz -C /opt/libreoffice/</span><br><span class="line"></span><br><span class="line">cd /opt/libreoffice/LibreOffice_6.2.2.2_Linux_x86-64_deb/DEBS</span><br><span class="line"></span><br><span class="line">sudo dpkg -i *.deb</span><br><span class="line"></span><br><span class="line">cd /opt/libreoffice/LibreOffice_6.2.2.2_Linux_x86-64_deb_sdk/DEBS</span><br><span class="line"></span><br><span class="line">sudo dpkg -i *.deb</span><br><span class="line"></span><br><span class="line">cd /opt/libreoffice/LibreOffice_6.2.2.2_Linux_x86-64_deb_langpack_zh-CN/DEBS</span><br><span class="line"></span><br><span class="line">sudo dpkg -i *.deb</span><br><span class="line"></span><br><span class="line">sudo apt-get install libxinerama1</span><br><span class="line"></span><br><span class="line">sudo apt-get install libcairo2-dev</span><br><span class="line"></span><br><span class="line">sudo apt-get install libcups2-dev</span><br></pre></td></tr></table></figure>
+<h2 id="Word转PDF测试"><a href="#Word转PDF测试" class="headerlink" title="Word转PDF测试"></a>Word转PDF测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libreoffice6.2 --headless --invisible --convert-to pdf &lt;待转换的word路径&gt; --outdir &lt;生成的pdf路径&gt;</span><br></pre></td></tr></table></figure>
+<p>此时可在输出目录看到已经生成了转换后的PDF文件，但是打开查看文件发现字符乱码。</p>
+<h2 id="添加字体支持"><a href="#添加字体支持" class="headerlink" title="添加字体支持"></a>添加字体支持</h2><h3 id="1-下载如下字体："><a href="#1-下载如下字体：" class="headerlink" title="1.下载如下字体："></a>1.下载如下字体：</h3><ul>
+<li>simsun.ttc 宋体</li>
+<li>simhei.ttf 黑体</li>
+<li>msyh.ttf 微软雅黑</li>
+<li>msyhbd.ttf 微软雅黑<h3 id="2-在-usr-share-fonts-truetype下面建立一个文件夹CustomizedGonts，把字体文件复制进来。"><a href="#2-在-usr-share-fonts-truetype下面建立一个文件夹CustomizedGonts，把字体文件复制进来。" class="headerlink" title="2.在/usr/share/fonts/truetype下面建立一个文件夹CustomizedGonts，把字体文件复制进来。"></a>2.在/usr/share/fonts/truetype下面建立一个文件夹CustomizedGonts，把字体文件复制进来。</h3><h3 id="3-把字体文件夹和字体文件都赋予权限"><a href="#3-把字体文件夹和字体文件都赋予权限" class="headerlink" title="3.把字体文件夹和字体文件都赋予权限"></a>3.把字体文件夹和字体文件都赋予权限</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod 777 CustomizedFonts</span><br><span class="line">cd CustomizedFonts</span><br><span class="line">sudo chmod 777 *</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4-安装字体"><a href="#4-安装字体" class="headerlink" title="4.安装字体"></a>4.安装字体</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo mkfontscale</span><br><span class="line">sudo mkfontdir</span><br><span class="line">sudo fc-cache</span><br></pre></td></tr></table></figure>
+<h2 id="Word转PDF测试-1"><a href="#Word转PDF测试-1" class="headerlink" title="Word转PDF测试"></a>Word转PDF测试</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">libreoffice6.2 --headless --invisible --convert-to pdf &lt;待转换的word路径&gt; --outdir &lt;生成的pdf路径&gt;</span><br></pre></td></tr></table></figure>
+<p>此时可在输出目录看到已经生成了转换后的PDF文件，并且文字显示正常。</p>
+<h2 id="Spring-Boot工程"><a href="#Spring-Boot工程" class="headerlink" title="Spring Boot工程"></a>Spring Boot工程</h2><h3 id="1-添加Maven依赖"><a href="#1-添加Maven依赖" class="headerlink" title="1.添加Maven依赖"></a>1.添加Maven依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.jodconverter&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jodconverter-core&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.2.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.jodconverter&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jodconverter-local&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.2.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.jodconverter&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;jodconverter-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;4.2.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.libreoffice&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;ridl&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.4.2&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2-配置application-ptoperties"><a href="#2-配置application-ptoperties" class="headerlink" title="2.配置application.ptoperties"></a>2.配置application.ptoperties</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jodconverter.local.enabled=true</span><br><span class="line">jodconverter.local.office-home=/opt/libreoffice6.2</span><br><span class="line">jodconverter.local.port-numbers=8100,8101,8102</span><br><span class="line">jodconverter.local.max-tasks-per-process=100</span><br></pre></td></tr></table></figure>
+<h3 id="3-pdf转换代码"><a href="#3-pdf转换代码" class="headerlink" title="3.pdf转换代码"></a>3.pdf转换代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">@RequestMapping(&quot;/doc&quot;)</span><br><span class="line">public class PDFController &#123;</span><br><span class="line"></span><br><span class="line">    @Autowired</span><br><span class="line">    private DocumentConverter documentConverter;</span><br><span class="line"></span><br><span class="line">    @RequestMapping(&quot;/pdf&quot;)</span><br><span class="line">    public void toPdf() throws OfficeException &#123;</span><br><span class="line">        File word = new File(&quot;/home/doc/123.doc&quot;);</span><br><span class="line">        File pdf = new File(&quot;/home/doc/123.pdf&quot;);</span><br><span class="line">        documentConverter.convert(word).to(pdf).execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -293,7 +311,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/11/Java(04)--HashMap的四种遍历/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/16/Java(06)--Linux下SpringBoot实现Word转PDF/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -307,18 +325,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/10/27/Camel(01)--简要介绍/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Camel(01)--简要介绍
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/07/Java(03)--利用反射抽取Servlet基类/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java(03)--利用反射抽取Servlet基类</div>
+    <a href="/2018/12/23/Java(05)--数据库时间戳Json序列化/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java(05)--数据库时间戳Json序列化</div>
       <i class="icon-circle-right"></i>
     </a>
   
